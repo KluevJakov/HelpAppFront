@@ -1,0 +1,58 @@
+html,
+body {
+    background: #22B5BE !important;
+}
+
+
+.form-custom {
+    background: #ffffff;
+    color: black;
+    height: 45px;
+}
+
+.form-custom::placeholder {
+    color: #6e6e6eaf;
+    opacity: 1;
+}
+
+.form-custom:-ms-input-placeholder {
+    color: #6e6e6eaf;
+}
+
+.form-custom::-ms-input-placeholder {
+    color: #6e6e6eaf;
+}
+
+.modal-mobile {
+    max-width: 400px;
+    min-width: 400px;
+}
+
+.modal-body {
+    display: flex;
+    justify-content: center;
+}
+
+.card-help-text {
+    font-size: smaller;
+}
+
+.card {
+    flex-direction: row !important;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.card:hover {
+    transition: .3s;
+    color: white;
+    background: #22B5BE;
+}
+
+
+.card-help-date {
+    font-size: smaller;
+    color: #b5b5b5;
+    display: flex;
+    justify-content: end;
+}

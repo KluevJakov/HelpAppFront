@@ -1,0 +1,14 @@
+<div class="modal-header">
+    <h4 class="modal-title w-100 d-flex align-items-center justify-content-center">Мой профиль</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="activeModal.dismiss('Cross click')"></button>
+</div>
+<div class="modal-body">
+    <div class="container d-flex align-items-center flex-column mobile-container" *ngIf="user">
+        <input class="form-control mb-2 form-custom" type="text" placeholder="Имя" [(ngModel)]="user.name">
+        <input class="form-control mb-2 form-custom" type="email" placeholder="Почта" [(ngModel)]="user.email">
+        <input class="form-control mb-2 form-custom" type="text" placeholder="Номер телефона" [(ngModel)]="user.phone">
+        <input class="form-control mb-2 form-custom" type="text" placeholder="Адрес" [(ngModel)]="user.address">
+        <input class="form-control mb-2 form-custom" type="text" placeholder="О себе" [(ngModel)]="user.about">
+        <input class="form-control mb-3 form-btn-custom" type="button" (click)="update()" value="Обновить профиль">
+    </div>
+</div>

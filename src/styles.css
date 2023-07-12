@@ -1,0 +1,41 @@
+.mobile-container {
+    max-width: 400px;
+    min-width: 400px;
+}
+
+.text-color {
+    color: #22B5BE;
+    text-decoration: none;
+    transition: .5s;
+}
+
+.text-color a:hover{
+    color: #12777c;
+    text-decoration: none;
+    transition: .5s;
+}
+
+.form-btn-custom {
+    background: white;
+    color: #22B5BE;
+    transition: 0.4s;
+}
+
+.form-btn-custom:hover {
+    background: #22B5BE;
+    color: white;
+    transition: 0.4s;
+}
+
+
+.form-btn-custom-exit {
+    background: white;
+    color: red;
+    transition: 0.4s;
+}
+
+.form-btn-custom-exit:hover {
+    background: red;
+    color: white;
+    transition: 0.4s;
+}

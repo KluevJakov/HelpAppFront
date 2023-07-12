@@ -1,0 +1,23 @@
+<div class="modal-header">
+    <h4 class="modal-title w-100 d-flex align-items-center justify-content-center">Врачи</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="activeModal.dismiss('Cross click')"></button>
+</div>
+<div class="modal-body">
+    <div class="container d-flex align-items-center flex-column mobile-container">
+        <div class="input-group">
+            <span class="input-group-text transparent form-custom">
+                <img class="svg-invert" src="assets/icons/search.svg" width="20px" alt="@"/>
+            </span>
+            <input class="form-control mb-2 form-custom" id="searchField" type="text" placeholder="Поиск.." (keyup)="getDoctors()">
+        </div>
+        <ng-container *ngIf="doctors">
+            <div class="list-group w-100">
+                <div class="list-group-item custom-list-item d-flex align-items-center justify-content-between" *ngFor="let doc of doctors">
+                    <img class="avatar" src="{{doc.avatar}}">
+                    <div>{{doc.name + " - " + doc.prof}}</div>
+                    <img class="chat-btn" src="assets/icons/bubbles.svg" (click)="chat(doc)" width="40px" alt="@"/>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+</div>

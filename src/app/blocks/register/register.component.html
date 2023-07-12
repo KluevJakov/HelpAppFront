@@ -1,0 +1,23 @@
+<div class="container d-flex align-items-center flex-column mobile-container">
+    <span class="text-color h3 mt-5 font-weight-bold">Присоединяйтесь!</span>
+    <span class="text-color mb-5">Создайте аккаунт прямо сейчас</span>
+
+    <div class="btn-group mb-2" role="group" (change)="changeGroup()">
+        <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+        <label class="btn btn-outline-secondary" for="btnradio1">Пациент</label>
+
+        <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+        <label class="btn btn-outline-secondary" for="btnradio2">Врач</label>
+    </div>
+    <input class="form-control mb-2 form-custom" type="text" maxlength="20" placeholder="Имя" [(ngModel)]="user.name">
+    <input class="form-control mb-2 form-custom" type="tel" maxlength="20" pattern="2" placeholder="Номер телефона" [(ngModel)]="user.phone">
+    <input class="form-control mb-2 form-custom" type="text" maxlength="30" placeholder="Адрес" [(ngModel)]="user.address">
+    <input class="form-control mb-2 form-custom" type="text" maxlength="50" placeholder="О себе" [(ngModel)]="user.about">
+    <input class="form-control mb-2 form-custom" type="email" maxlength="30" placeholder="Электронная почта" [(ngModel)]="user.email">
+    <input class="form-control mb-2 form-custom" type="password" maxlength="16" placeholder="Пароль" [(ngModel)]="user.password">
+    <input class="form-control mb-4 form-custom" type="password" maxlength="16" placeholder="Повторите пароль" id="passwordAccept">
+    <input class="form-control mb-3 form-btn-custom" type="button" (click)="register()" value="Создать аккаунт">
+
+    <span class="text-muted mb-3">Уже есть аккаунт?</span>
+    <span class="text-color"><a href="/" class="text-color">Авторизуйтесь здесь</a></span>
+</div>

@@ -1,0 +1,11 @@
+.custom-header {
+    height: 50px;
+    color: white;
+    background: #22B5BE;
+    font-size: large;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}

@@ -1,0 +1,37 @@
+
+.form-custom {
+    background: #22B5BE;
+    color: white;
+    height: 45px;
+    border-left: none;
+}
+
+.form-custom::placeholder {
+    color: rgba(255, 255, 255, 0.685);
+    opacity: 1;
+}
+
+.form-custom:-ms-input-placeholder {
+    color: rgba(255, 255, 255, 0.685);
+}
+
+.form-custom::-ms-input-placeholder {
+    color: rgba(255, 255, 255, 0.685);
+}
+
+.svg-invert {
+    -webkit-filter: invert(100%);
+    filter: invert(100%);
+}
+
+.form-btn-custom {
+    background: white;
+    color: #22B5BE;
+    transition: 0.4s;
+}
+
+.form-btn-custom:hover {
+    background: #22B5BE;
+    color: white;
+    transition: 0.4s;
+}

@@ -1,0 +1,10 @@
+.avatar {
+    border-radius: 100%;
+    width: 150px;
+    border: 1px solid gray;
+}
+
+.modal-header {
+    background: #22B5BE;
+    color: white;
+}

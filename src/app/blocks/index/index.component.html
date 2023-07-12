@@ -1,0 +1,459 @@
+<div class="container d-flex align-items-center flex-column mobile-container">
+    <ng-container *ngIf="user == null">
+        <span><img class="mt-5" src="assets/logo1.png" width="350px"></span>
+        <span class="text-color h3 text-center mb-5 mt-3">Добро пожаловать в проект МыВместе!</span>
+
+        <input class="form-control mb-3 form-btn-custom" type="button" value="О проекте"
+            (click)="showModal(aboutModal)">
+        <input class="form-control mb-3 form-btn-custom" type="button" value="Контакты"
+            (click)="showModal(contactsModal)">
+        <input class="form-control mb-3 form-btn-custom" type="button" value="Получить помощь"
+            (click)="showModal(helpModal)">
+        <input class="form-control mb-3 form-btn-custom" type="button" value="Отзывы"
+            (click)="showModal(feedbackModal)">
+
+        <div class="input-group mb-3 mt-5">
+            <span class="input-group-text form-custom">
+                <img src="assets/icons/login.svg" width="35px" alt="@" />
+            </span>
+            <input class="form-control form-btn-custom" type="button" routerLink="/login" value="Войти">
+        </div>
+    </ng-container>
+    <ng-container *ngIf="user && user.roles[0].name == 'USER'">
+        <span class="text-color h3 text-center mb-5 mt-3">Привет, Волонтер!</span>
+        <input class="form-control mb-3 form-btn-custom" type="button" value="Новые заявки"
+            (click)="showModalParams2(ticketsModal, 'Новые заявки')">
+        <input class="form-control mb-3 form-btn-custom" type="button" value="Заявки в работе"
+            (click)="showModalParams2(ticketsModal, 'Заявки в работе')">
+        <input class="form-control mb-3 form-btn-custom" type="button" value="Завершенные заявки"
+            (click)="showModalParams2(ticketsModal, 'Завершенные заявки')">
+        <input class="form-control mb-3 form-btn-custom" type="button" value="Отмененные заявки"
+            (click)="showModalParams2(ticketsModal, 'Отмененные заявки')">
+
+        <div class="input-group mb-3 mt-5">
+            <span class="input-group-text form-custom">
+                <img src="assets/icons/login.svg" width="35px" alt="@" />
+            </span>
+            <input class="form-control form-btn-custom-exit" type="button" (click)="logout()" value="Выйти">
+        </div>
+    </ng-container>
+    <ng-container *ngIf="user && user.roles[0].name == 'ADMIN'">
+        <span class="text-color h3 text-center mb-5 mt-3">Привет, Админ!</span>
+        <input class="form-control mb-3 form-btn-custom" type="button" value="Новые заявки"
+            (click)="showModalParams2(ticketsModal, 'Новые заявки')">
+        <input class="form-control mb-3 form-btn-custom" type="button" value="Заявки в работе"
+            (click)="showModalParams2(ticketsModal, 'Заявки в работе')">
+        <input class="form-control mb-3 form-btn-custom" type="button" value="Завершенные заявки"
+            (click)="showModalParams2(ticketsModal, 'Завершенные заявки')">
+        <input class="form-control mb-3 form-btn-custom" type="button" value="Отмененные заявки"
+            (click)="showModalParams2(ticketsModal, 'Отмененные заявки')">
+        <input class="form-control mb-3 form-btn-custom" type="button" value="Статистика"
+            (click)="showModal(statistics)">
+        <input class="form-control mb-3 form-btn-custom" type="button" value="Управление пользователями"
+            (click)="showModal(usersModal)">
+
+        <div class="input-group mb-3 mt-5">
+            <span class="input-group-text form-custom">
+                <img src="assets/icons/login.svg" width="35px" alt="@" />
+            </span>
+            <input class="form-control form-btn-custom-exit" type="button" (click)="logout()" value="Выйти">
+        </div>
+    </ng-container>
+</div>
+
+<ng-template #aboutModal let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">О проекте</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+        <div class="modal-mobile">
+            <div class="d-flex align-center justify-content-center mb-5"><img class="mt-5" src="assets/logo1.png"
+                    width="350px"></div>
+            <div style="padding-inline: 30px;">
+                <p>Добро пожаловать в наш проект, где волонтеры собрались вместе, чтобы помогать людям в нужде. Мы
+                    стремимся
+                    создать сообщество, в котором каждый может найти поддержку и помощь в трудных ситуациях.</p>
+                <p>Наша цель - помогать людям адресно, психологически, гуманитарно и иными путями, чтобы улучшить их
+                    качество жизни и
+                    поддержать их в различных аспектах. </p>
+                <p>Мы верим, что каждый вклад, даже самый маленький, может иметь огромное
+                    значение для тех, кто нуждается в помощи. Присоединяйтесь к нам, чтобы вместе делать мир лучше и
+                    создавать
+                    положительные изменения в жизни других людей.</p>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Вернуться</button>
+    </div>
+</ng-template>
+
+<ng-template #contactsModal let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Контакты</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+        <div class="modal-mobile">
+            <div class="d-flex align-center justify-content-center mb-1"><img class="mt-1" src="assets/logo1.png"
+                    width="350px"></div>
+            <div style="padding-inline: 30px;">
+                <ol>
+                    <li>
+                        Координатор проекта:
+                        <ul>
+                            <li>Имя: Иванов И.И.</li>
+                            <li>Электронная почта: ivanov@bk.ru</li>
+                            <li>Телефон: +79371258374</li>
+                        </ul>
+                    </li>
+                    <li>
+                        Главный психолог:
+                        <ul>
+                            <li>Имя: Петрова П.П.</li>
+                            <li>Электронная почта: petrova@bk.ru</li>
+                            <li>Телефон: +79376536234</li>
+                        </ul>
+                    </li>
+                    <li>
+                        Координатор волонтеров:
+                        <ul>
+                            <li>Имя: Сидоров С.С.</li>
+                            <li>Электронная почта: sidorov@bk.ru</li>
+                            <li>Телефон: +79371643567</li>
+                        </ul>
+                    </li>
+                    <li>
+                        Гуманитарная помощь:
+                        <ul>
+                            <li>Имя: Александрова А.А.</li>
+                            <li>Электронная почта: alex@bk.ru</li>
+                            <li>Телефон: +79371734532</li>
+                        </ul>
+                    </li>
+                    <li>
+                        Адрес и местоположение офиса проекта:
+                        <ul>
+                            <li>Адрес: ул. Политехническая, 77</li>
+                            <li>Город: Саратов</li>
+                            <li>Почтовый индекс: 413855</li>
+                            <li>Страна: Россия</li>
+                        </ul>
+                    </li>
+                </ol>
+                <p>
+                    Пожалуйста, используйте указанные контакты для связи с соответствующими лицами в нашем проекте. Мы
+                    всегда
+                    готовы помочь вам и ответить на ваши вопросы.</p>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Вернуться</button>
+    </div>
+</ng-template>
+
+<ng-template #helpModal let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Получить помощь</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+        <div class="modal-mobile">
+            <div class="card mt-5 mb-4" (click)="showModalParams(help2Modal, 'адресную')">
+                <div style="padding: 20px;" class="d-flex align-center justify-content-center">
+                    <img src="assets/target-svgrepo-com.svg" width="60px">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Адресная помощь</h5>
+                    <div class="card-help-text">Это форма помощи, направленная на конкретные потребности и запросы
+                        отдельных людей или групп.</div>
+                </div>
+            </div>
+            <div class="card mb-4" (click)="showModalParams(help2Modal, 'психологическую')">
+                <div style="padding: 20px;" class="d-flex align-center justify-content-center">
+                    <img src="assets/profile-plus-brain-svgrepo-com.svg" width="60px">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Психологическая помощь</h5>
+                    <div class="card-help-text">Предоставляется людям, испытывающим эмоциональные или психологические
+                        трудности.</div>
+                </div>
+            </div>
+            <div class="card mb-4" (click)="showModalParams(help2Modal, 'гуманитарную')">
+                <div style="padding: 20px;" class="d-flex align-center justify-content-center">
+                    <img src="assets/help-svgrepo-com.svg" width="60px">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Гуманитарная помощь</h5>
+                    <div class="card-help-text">Направлена на оказание поддержки людям в кризисных ситуациях, таких как
+                        природные
+                        бедствия, военные конфликты или беженство.</div>
+                </div>
+            </div>
+            <div class="card mb-3" (click)="showModalParams(help2Modal, 'иную')">
+                <div style="padding: 20px;" class="d-flex align-center justify-content-center">
+                    <img src="assets/support-svgrepo-com.svg" width="60px">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Иная помощь</h5>
+                    <div class="card-help-text">Это разнообразные способы помощи, которые могут быть уникальными для
+                        конкретных ситуаций и нужд
+                        людей.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Вернуться</button>
+    </div>
+</ng-template>
+
+<ng-template #feedbackModal let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Отзывы</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+        <div class="modal-mobile">
+            <input class="form-control mt-3 form-btn-custom" type="button" value="Оставить отзыв"
+                (click)="showModal(feedback2Modal)">
+            <div *ngIf="!feedbacks" class="text-center mt-3">
+                <p>Отзывов пока нет</p>
+            </div>
+            <div class="card mt-3 mb-2" *ngFor="let f of feedbacks">
+                <div class="card-body">
+                    <h5 class="card-title">{{f.name}} - #{{f.number}}</h5>
+                    <div class="card-help-text">{{f.text}}</div>
+                    <div class="card-help-date">{{f.createdDate | date :'short'}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Вернуться</button>
+    </div>
+</ng-template>
+
+<ng-template #feedback2Modal let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Оставить отзыв</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+        <div class="modal-mobile">
+            <input class="form-control mt-5 mb-3 form-custom" type="text" placeholder="Имя" [(ngModel)]="feedback.name">
+            <input class="form-control mb-3 form-custom" type="number" placeholder="№ заявки"
+                [(ngModel)]="feedback.number">
+            <textarea class="form-control mb-3 form-custom" placeholder="Текст отзыва"
+                [(ngModel)]="feedback.text"></textarea>
+            <input class="form-control mb-3 mt-5 form-btn-custom" type="button" value="Направить отзыв"
+                (click)="sendFeedback()">
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #help2Modal let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Получить {{helpKind}} помощь</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+        <div class="modal-mobile">
+            <input class="form-control mt-5 mb-3 form-custom" type="text" placeholder="Фамилия"
+                [(ngModel)]="ticket.surname">
+            <input class="form-control mb-3 form-custom" type="text" placeholder="Имя" [(ngModel)]="ticket.name">
+            <input class="form-control mb-3 form-custom" type="tel" placeholder="Номер телефона"
+                [(ngModel)]="ticket.phone">
+            <div class="form-check mb-3">
+                <input class="form-check-input" type="checkbox" id="flexCheckDefault" (change)="isSign = !isSign">
+                <label class="form-check-label" for="flexCheckDefault">
+                    Согласие на обработку персональных данных
+                </label>
+            </div>
+            <textarea class="form-control mb-3 form-custom" placeholder="Текст заявки"
+                [(ngModel)]="ticket.text"></textarea>
+            <input class="form-control mb-3 mt-5 form-btn-custom" type="button" value="Направить заявку"
+                (click)="sendTicket()" [disabled]="!isSign">
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #ticketsModal let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">{{ticketTitle}}</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+        <div class="modal-mobile">
+            <div *ngIf="!tickets || tickets.length == 0" class="text-center mt-3">
+                <p>Заявок пока нет</p>
+            </div>
+            <div class="card mt-3 mb-2" *ngFor="let t of tickets" (click)="openTicketModal(ticketModal, t)">
+                <div class="card-body">
+                    #{{t.id}} - {{t.name}} | {{stringifyKindById(t.kind)}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Вернуться</button>
+    </div>
+</ng-template>
+
+<ng-template #ticketModal let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Просмотр заявки</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+        <div class="modal-mobile">
+            <label class="mt-5" for="field1">Фамилия</label>
+            <input class="form-control mb-3 form-custom" type="text" placeholder="Фамилия" id="field1"
+                [(ngModel)]="ticket.surname" [disabled]="true">
+            <label for="field2">Имя</label>
+            <input class="form-control mb-3 form-custom" type="text" placeholder="Имя" id="field2"
+                [(ngModel)]="ticket.name" [disabled]="true">
+            <label for="field3">Номер телефона</label>
+            <input class="form-control mb-3 form-custom" type="tel" placeholder="Номер телефона" id="field3"
+                [(ngModel)]="ticket.phone" [disabled]="true">
+            <label for="field4">Текст заявки</label>
+            <textarea class="form-control mb-3 form-custom" placeholder="Текст заявки" id="field4"
+                [(ngModel)]="ticket.text" [disabled]="true"></textarea>
+            <label for="field5">Вид помощи</label>
+            <input class="form-control mb-3 form-custom" type="text" placeholder="Вид помощи" id="field5"
+                [value]="stringifyKindById(ticket.kind)" [disabled]="true">
+            <label for="field6">Состояние заявки</label>
+            <input class="form-control mb-3 form-custom" type="text" placeholder="Состояние заявки" id="field6"
+                [value]="stringifyStateById(ticket.status)" [disabled]="true">
+            <label for="field7">Комментарии волонтера</label>
+            <textarea class="form-control mb-3 form-custom" placeholder="Комментарии волонтера" id="field7"
+                [(ngModel)]="ticket.comment"
+                [disabled]="ticket.status == 3 || ticket.status == 2 || (ticket.status == 1 && user?.id != ticket.changedUserId)"></textarea>
+            <ng-container *ngIf="ticket.status != 0">
+                <label for="field8">Последнее изменение</label>
+                <input class="form-control mb-3 form-custom" type="text" placeholder="Последнее изменение" id="field8"
+                    [value]="(ticket.changedDate | date :'short') + ' | Id пользователя: ' + ticket.changedUserId"
+                    [disabled]="true">
+            </ng-container>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-warning" (click)="changeState(1)" [disabled]="ticket.status != 0">В
+            работу</button>
+        <button type="button" class="btn btn-outline-success" (click)="changeState(2)"
+            [disabled]="ticket.status == 3 || ticket.status == 2 || (ticket.status == 1 && user?.id != ticket.changedUserId)">Завершить</button>
+        <button type="button" class="btn btn-outline-danger" (click)="changeState(3)"
+            [disabled]="ticket.status == 3 || ticket.status == 2 || (ticket.status == 1 && user?.id != ticket.changedUserId)">Отменить</button>
+        <ng-container *ngIf="user && user.roles[0].name == 'ADMIN'">
+            <button type="button" class="btn btn-outline-danger" (click)="deleteTicket(ticket.id)" [disabled]="ticket.status == 1">Удалить</button>
+        </ng-container>
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Вернуться</button>
+    </div>
+</ng-template>
+
+<ng-template #statistics let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Статистика</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+        <div class="modal-mobile">
+            <ngx-charts-advanced-pie-chart
+                    [animations]="true"
+                    [results]="data1"
+                    [gradient]="true"
+                    [label]="statLabel1"
+                    [view]="[400, 300]">
+            </ngx-charts-advanced-pie-chart>
+
+            <hr>
+
+            <ngx-charts-advanced-pie-chart
+                    [animations]="true"
+                    [results]="data2"
+                    [gradient]="true"
+                    [label]="statLabel2"
+                    [view]="[400, 300]">
+            </ngx-charts-advanced-pie-chart>
+
+            <hr class="mb-5">
+
+            <ngx-charts-bar-vertical-2d
+                    [animations]="true"
+                    [results]="data3"
+                    [gradient]="true"
+                    [xAxis]="true"
+                    [yAxis]="true"
+                    [xAxisLabel]="'Вид помощи'"
+                    [yAxisLabel]="'Кол-во заявок'"
+                    [showXAxisLabel]="true"
+                    [showYAxisLabel]="true"
+                    [showGridLines]="true"
+                    [view]="[400, 400]">
+            </ngx-charts-bar-vertical-2d>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Вернуться</button>
+    </div>
+</ng-template>
+
+<ng-template #usersModal let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Управление пользователями</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+        <div class="modal-mobile">
+            <input class="form-control mt-3 form-btn-custom" type="button" value="Добавить пользователя"
+                (click)="showModalUser(userModal)">
+            <div *ngIf="!users" class="text-center mt-3">
+                <p>Пользователей пока нет</p>
+            </div>
+            <div class="card mt-3 mb-2" *ngFor="let u of users">
+                <div class="card-body" (click)="showModalUser(userModal, u)">
+                    <h5 class="card-title">{{u.name}} - #{{u.id}}</h5>
+                    <div class="card-help-text">{{u.email}}</div>
+                    <div class="card-help-date">{{u.roles[0].displayName}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Вернуться</button>
+    </div>
+</ng-template>
+
+<ng-template #userModal let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Управление пользователем</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+        <div class="modal-mobile">
+            <input class="form-control mb-2 form-custom" type="text" placeholder="Имя" [(ngModel)]="cuser.name">
+            <input class="form-control mb-2 form-custom" type="email" placeholder="Почта" [(ngModel)]="cuser.email">
+            <input class="form-control mb-2 form-custom" type="text" placeholder="Номер телефона" [(ngModel)]="cuser.phone">
+            <input class="form-control mb-2 form-custom" type="text" placeholder="Адрес" [(ngModel)]="cuser.address">
+            <input class="form-control mb-2 form-custom" type="text" placeholder="О себе" [(ngModel)]="cuser.about">
+            <ng-container *ngIf="!cuser.id">
+                <input class="form-control mb-2 form-custom" type="password" placeholder="Пароль" [(ngModel)]="cuser.password">
+            </ng-container>
+            <input class="form-control mb-3 form-btn-custom" type="button" (click)="update()" value="Сохранить пользователя">
+        </div>
+    </div>
+    <div class="modal-footer">
+        <ng-container *ngIf="cuser.id">
+            <ng-container *ngIf="cuser.roles[0].name =='USER'">
+                <button type="button" class="btn btn-outline-success" (click)="grantUser(cuser.id)">Назначить администратором</button>
+            </ng-container>
+            <ng-container *ngIf="cuser.roles[0].name =='ADMIN'">
+                <button type="button" class="btn btn-outline-warning" (click)="degrantUser(cuser.id)">Назначить волонтером</button>
+            </ng-container>
+            <button type="button" class="btn btn-outline-danger" (click)="deleteUser(cuser.id)">Удалить пользователя</button>
+        </ng-container>
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Вернуться</button>
+    </div>
+</ng-template>

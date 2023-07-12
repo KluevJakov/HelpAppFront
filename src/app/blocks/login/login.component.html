@@ -1,0 +1,19 @@
+<div class="container d-flex align-items-center flex-column mobile-container">
+    <span><img class="mt-5" style="border-radius: 25px;" src="assets/logo2.png" width="100px"></span>
+    <span class="text-color h2 mt-1 mb-1 font-weight-bold">Дорогой участник!</span>
+    <span class="text-color mb-5">Войдите в свой аккаунт</span>
+
+    <div class="input-group">
+        <span class="input-group-text transparent form-custom">
+            <img class="svg-invert" src="assets/icons/user.svg" width="20px" alt="@"/>
+        </span>
+        <input class="form-control mb-2 form-custom" type="email" placeholder="Электронная почта" [(ngModel)]="user.email">
+    </div>
+    <div class="input-group">
+        <span class="input-group-text transparent form-custom">
+            <img class="svg-invert" src="assets/icons/shield.svg" width="20px" alt="@"/>
+        </span>
+        <input class="form-control mb-4 form-custom" type="password" placeholder="Пароль"  [(ngModel)]="user.password">
+    </div>
+    <input class="form-control mb-3 form-btn-custom" type="button" (click)="login()" value="Войти">
+</div>

@@ -1,0 +1,26 @@
+.modal-header {
+    background: #22B5BE;
+    color: white;
+}
+
+.custom-list-item {
+    width: 100%;
+    height: 80px;
+}
+
+.avatar {
+    border-radius: 50%;
+    width: 65px;
+    height: 65px;
+    object-fit: cover;
+}
+
+.chat-btn {
+    transition: 0.5s;
+}
+
+.chat-btn:hover {
+    -webkit-filter: invert(50%);
+    filter: invert(50%);
+    transition: 0.5s;
+}
